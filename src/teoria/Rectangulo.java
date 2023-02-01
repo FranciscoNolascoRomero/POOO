@@ -23,8 +23,9 @@ public class Rectangulo {
         return alto+alto+ancho+ancho;
     }
     public String toString(){
-        return String.format("Ancho: %d Alto: %d ,%d ,%d",ancho,alto,getLongitud(),getArea());
+         return String.format("Ancho: %d Alto: %d LOMGITUD: %.2f AREA: %d",ancho,alto,getLongitud(),getArea());
     }
+
 
 
 }
