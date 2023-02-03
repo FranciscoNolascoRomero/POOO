@@ -1,15 +1,39 @@
 package teoria;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class TestRectangulo {
     public static void main(String[] args) {
-        Rectangulo rectangulo1 = new Rectangulo();
-        rectangulo1.setAlto(10);
-        rectangulo1.setAncho(10);
-        mostrarCaracteristicas(rectangulo1);
+        Scanner scanner = new Scanner(System.in);
+        List<Rectangulo> rectangulos = new ArrayList<>();
+
+        System.out.println("NUMERO DE RECTANGULOS QUE QUIERES CREAR");
+        int numeroRectangulos = scanner.nextInt();
+
+
+        for (int i = 0; i < numeroRectangulos; i++) {
+
+            String nombreRectangulo="Rectangulo " + i;
+            Rectangulo rectamgulo = new Rectangulo();
+
+            System.out.println(i + 1 +"º RECTANGULO,DIME EL ANCHO ");
+            int ancho = scanner.nextInt();
+            rectamgulo.setAncho(ancho);
+
+            System.out.println(i + 1 +"º RECTANGULO DIME EL ALTO  ");
+            int alto = scanner.nextInt();
+            rectamgulo.setAlto(alto);
+
+            rectangulos.add(rectamgulo);
+
+        }
+        mostrarCaracteristicas(rectangulos);
     }
-    public static void mostrarCaracteristicas(Rectangulo rectangulo1){
-        for (int i = 0; i < rectangulo1(); i++) {
-            System.out.printf("%d.- %s%n", i + 1, rectangulo1.get(i));
+    public static void mostrarCaracteristicas(List<Rectangulo> rectangulos){
+        for (int i = 0; i < rectangulos.size(); i++) {
+            System.out.printf("%d.- %s%n", i + 1, rectangulos.get(i));
         }
     }
 }
