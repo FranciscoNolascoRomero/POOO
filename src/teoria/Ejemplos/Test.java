@@ -1,7 +1,6 @@
 package teoria.Ejemplos;
 
-import teoria.Circulo;
-import teoria.Rectangulo;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +32,7 @@ public class Test {
             do {
                 System.out.println("Escriba el telefono");
                 telefono = scanner.nextLine();
-                peersona.setTelefono(1
-                        telefono);
+                peersona.setTelefono(telefono);
             }while (!checkPhoneNumber(telefono));
 
 
@@ -56,9 +54,11 @@ public class Test {
             System.out.printf("%d.- %s%n", i + 1, persona.get(i));
         }
     }
-    public static void personaMasJoven(List<Persona> persona){
-        for (int i = 0; i < persona.size(); i++) {
-        }
+    public static List<Persona> personaMasJoven(List<Persona> persona){
+        List<Persona> listaJovenes = new ArrayList<>();
+
+
+        return listaJovenes;
     }
 
 
