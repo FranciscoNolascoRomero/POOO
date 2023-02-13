@@ -1,4 +1,4 @@
-package Ejercicios;
+package Ejercicios.cilindros;
 
 public class Cilindro {
     private double radio;

@@ -1,4 +1,4 @@
-package Ejercicios;
+package Ejercicios.Triangulo;
 
 public class Ejercicio2 {
     private double cateto1 = 0.0;
@@ -31,9 +31,14 @@ public class Ejercicio2 {
         return (cateto1*cateto2)/2;
     }
     public double getPerimetro(){
-        return cateto1+cateto2+Math.hypot(cateto1,cateto2);
+        return cateto1+cateto2+getHipotenusa();
     }
     public double getHipotenusa(){
         return Math.hypot(cateto1,cateto2);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%.2f,%.2f,%.2f,%.2f,%.2f",cateto1,cateto2,getHipotenusa(),getPerimetro(),getArea());
     }
 }

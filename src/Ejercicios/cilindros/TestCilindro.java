@@ -1,6 +1,4 @@
-package Ejercicios;
-
-import teoria.Circulo;
+package Ejercicios.cilindros;
 
 import java.util.ArrayList;
 import java.util.List;
