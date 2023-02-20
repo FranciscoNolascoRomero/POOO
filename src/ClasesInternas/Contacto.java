@@ -1,5 +1,7 @@
 package ClasesInternas;
 
+import dates.DateHelper;
+
 import java.time.LocalDate;
 
 public class Contacto {
@@ -50,7 +52,7 @@ public class Contacto {
 
     @Override
     public String toString() {
-        return String.format("NOMBRE : %s,%s%nTELF : %s%nCUMPLEAÑOS : %d del %d",nombreContacto,apellidos,telefono,fechaNacimiento.getDayOfMonth(),fechaNacimiento.getMonthValue());
+        return String.format("NOMBRE : %s,%s%nTELF : %s%nCUMPLEAÑOS : %d del %d%nEdad: %d",nombreContacto,apellidos,telefono,fechaNacimiento.getDayOfMonth(),fechaNacimiento.getMonthValue(), DateHelper.calcularEdad(fechaNacimiento ));
     }
 
 //    public static void main(String[] args) {
