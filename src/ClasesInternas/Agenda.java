@@ -1,11 +1,24 @@
 package ClasesInternas;
 
-import dates.DateHelper;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Agenda {
+    private NombreAgenda nombreAgenda;
+    List<Contacto> contactos;
+
+    public Agenda(NombreAgenda nombreAgenda, List<Contacto> contactos) {
+        this.nombreAgenda = nombreAgenda;
+        this.contactos = contactos;
+    }
+
+    public Agenda(NombreAgenda nombreAgenda) {
+        this.nombreAgenda = nombreAgenda;
+        contactos = new ArrayList<>();
+    }
+    //getters y setters
+
+
     public NombreAgenda getNombreAgenda() {
         return nombreAgenda;
     }
@@ -18,65 +31,39 @@ public class Agenda {
         return contactos;
     }
 
-    public void setContactos(List<Contacto> contactos) {
-        this.contactos = contactos;
+
+    //método que añada un contacto
+    public boolean addContacto(Contacto contacto){
+        return contactos.add(contacto);
     }
-
-    public Agenda(NombreAgenda nombreAgenda) {
-        this.nombreAgenda = nombreAgenda;
-        contactos = new ArrayList<>();
-    }
-
-    public Agenda(NombreAgenda nombreAgenda, List<Contacto> contactos) {
-        this.nombreAgenda = nombreAgenda;
-        this.contactos = contactos;
-    }
-
-    private NombreAgenda nombreAgenda;
-    List<Contacto> contactos;
-
-    //getters //
-
-
-
-    public boolean getContactos(Contacto contacto){
-       return contactos.add(contacto);
-    }
-    public boolean eliminarContacto(Contacto contacto){
+    //método que borre un contacto
+    public boolean borrarContacto(Contacto contacto) {
         return contactos.remove(contacto);
     }
-
-    public Contacto mostrarlo(String telefono){
-        for (Contacto contacto:contactos) {
+    //método que actualice un contacto
+    public boolean actualizarContacto(Contacto oldContacto, Contacto newContacto){
+        for (Contacto contacto: contactos) {
+            if (oldContacto.equals(contacto))
+                contacto = newContacto;
+            return true;
+        }
+        return false;
+    }
+    //método que muestre un contacto, dado el teléfono
+    public Contacto mostrarContacto (String telefono) {
+        for (Contacto contacto: contactos) {
             if (contacto.getTelefono().equals(telefono))
                 return contacto;
         }
         return null;
     }
-
-    public boolean actualizarContacto(Contacto oldContacto,Contacto newContacto){
-
-        for (Contacto contacto:contactos) {
-            if (!oldContacto.equals(newContacto))
-              oldContacto = newContacto;
-            return true;
-
+    //método que devuelva una lista de objetos que sean contactos mayores de edad
+    public List<Contacto> getContactosMayoresEdad() {
+        List<Contacto> mayoresEdad = new ArrayList<>();
+        for (Contacto contacto : contactos) {
+            // if (calcularEdad(contacto.getFechaNacimiento()) * -1 >= 18)
+            mayoresEdad.add(contacto);
         }
-        return false;
-    }
-
-    //metodo que devuelva una lista de objetos
-//    public static int calcularEdad(LocalDate fecha){
-//        LocalDate fechaActual = LocalDate.now();
-//        Period period = Period.between(fechaActual,fecha);
-//        return period.getYears();
-//    }
-    public List<Contacto> getCOntactosMayoresDeEdas(){
-        List<Contacto> mayoresEdasd =new ArrayList<>();
-        for (Contacto contacto:contactos) {
-            if (DateHelper.calcularEdad(contacto.getFechaNacimiento()) >=18)
-                mayoresEdasd.add(contacto);
-        }
-        return mayoresEdasd;
+        return mayoresEdad;
     }
 }
